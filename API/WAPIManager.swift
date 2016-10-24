@@ -94,9 +94,10 @@ public class WAPIManager {
 // MARK: Private functions
 extension WAPIManager {
     private func apiCall(method: Router, response: (WeatherResult) -> Void) {
-        Alamofire.request(method).responseJSON { (_, _, data) in
-            guard let js: AnyObject = data.value where data.isSuccess else {
-                response(WeatherResult.Error(data.error.debugDescription))
+        
+        Alamofire.request(method).responseJSON { rs in
+            guard let js: AnyObject = rs.result.value where rs.result.isSuccess else {
+                response(WeatherResult.Error(rs.result.error.debugDescription))
                 return
             }
             response(WeatherResult.Success(JSON(js)))
@@ -133,7 +134,7 @@ enum Router: URLRequestConvertible {
     // MARK: URLRequestConvertible
     var URLRequest: NSMutableURLRequest {
         let URL = NSURL(string: Router.baseURLString + Router.apiVersion)!
-        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path)!)
         mutableURLRequest.HTTPMethod = method.rawValue
         
         func encode(params: [String: AnyObject]) -> NSMutableURLRequest {
