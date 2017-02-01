@@ -56,7 +56,7 @@ public enum WeatherResult {
 
 public class WAPIManager {
     
-    private var params = [String : AnyObject]()
+    internal var params = [String : Any]()
     public var temperatureFormat: TemperatureFormat = .Kelvin {
         didSet {
             params["units"] = temperatureFormat.rawValue
@@ -77,7 +77,6 @@ public class WAPIManager {
         self.init(apiKey: apiKey)
         self.temperatureFormat = temperatureFormat
         self.params["units"] = temperatureFormat.rawValue
-        
     }
     
     public convenience init(apiKey: String, temperatureFormat: TemperatureFormat, lang: Language) {
@@ -93,10 +92,11 @@ public class WAPIManager {
 
 // MARK: Private functions
 extension WAPIManager {
-    private func apiCall(method: Router, response: (WeatherResult) -> Void) {
-        Alamofire.request(method).responseJSON { (_, _, data) in
-            guard let js: AnyObject = data.value where data.isSuccess else {
-                response(WeatherResult.Error(data.error.debugDescription))
+    internal func apiCall(method: Router, response: @escaping (WeatherResult) -> Void) {
+        
+        Alamofire.request(method).responseJSON { rs in
+            guard let js: Any = rs.result.value, rs.result.isSuccess else {
+                response(WeatherResult.Error(rs.result.error.debugDescription))
                 return
             }
             response(WeatherResult.Success(JSON(js)))
@@ -108,13 +108,13 @@ enum Router: URLRequestConvertible {
     static let baseURLString = "http://api.openweathermap.org/data/"
     static let apiVersion = "2.5"
     
-    case Weather([String: AnyObject])
-    case ForeCast([String: AnyObject])
-    case DailyForecast([String: AnyObject])
-    case HirstoricData([String: AnyObject])
+    case Weather([String: Any])
+    case ForeCast([String: Any])
+    case DailyForecast([String: Any])
+    case HirstoricData([String: Any])
     
-    var method: Alamofire.Method {
-        return .GET
+    var method: HTTPMethod {
+        return .get
     }
     
     var path: String {
@@ -130,25 +130,26 @@ enum Router: URLRequestConvertible {
         }
     }
     
+    
+    func encode(params: [String: Any]) -> URLRequest {
+        
+        let url = URL(string:  Router.baseURLString + Router.apiVersion)
+        let urlRequest = URLRequest(url: (url?.appendingPathComponent(path))!)
+        
+        return try! URLEncoding().encode(urlRequest, with: params)
+    }
+    
     // MARK: URLRequestConvertible
-    var URLRequest: NSMutableURLRequest {
-        let URL = NSURL(string: Router.baseURLString + Router.apiVersion)!
-        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
-        mutableURLRequest.HTTPMethod = method.rawValue
-        
-        func encode(params: [String: AnyObject]) -> NSMutableURLRequest {
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: params).0
-        }
-        
+    func asURLRequest() throws -> URLRequest {
         switch self {
         case .Weather(let parameters):
-            return encode(parameters)
+            return encode(params: parameters)
         case .ForeCast(let parameters):
-            return encode(parameters)
+            return encode(params: parameters)
         case .DailyForecast(let parameters):
-            return encode(parameters)
+            return encode(params: parameters)
         case .HirstoricData(let parameters):
-            return encode(parameters)
+            return encode(params: parameters)
         }
     }
 }
@@ -157,68 +158,66 @@ enum Router: URLRequestConvertible {
 //MARK: - Get Current Weather
 extension WAPIManager {
     
-    private func currentWeather(params: [String:AnyObject], data: (WeatherResult) -> Void) {
-        apiCall(Router.Weather(params)) { data($0) }
+    private func currentWeather(params: [String:Any], data: @escaping (WeatherResult) -> Void) {
+        apiCall(method: Router.Weather(params)) { data($0) }
     }
     
-    public func currentWeatherByCityNameAsJson(cityName: String, data: (WeatherResult) -> Void) {
+    public func currentWeatherByCityNameAsJson(cityName: String, data: @escaping (WeatherResult) -> Void) {
         params["q"] = cityName
         
-        currentWeather(params) { data($0) }
+        currentWeather(params: params) { data($0) }
     }
     
-    public func currentWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (WeatherResult) -> Void) {
+    public func currentWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: @escaping (WeatherResult) -> Void) {
         
         params["lat"] = String(stringInterpolationSegment: coordinates.latitude)
         params["lon"] = String(stringInterpolationSegment: coordinates.longitude)
         
-        currentWeather(params) { data($0) }
+        currentWeather(params: params) { data($0) }
     }
-    
 }
 
 //MARK: - Get Forecast
 extension WAPIManager {
     
-    private func forecastWeather(parameters: [String:AnyObject], data: (WeatherResult) -> Void) {
-        apiCall(Router.ForeCast(params)) { data($0) }
+    private func forecastWeather(parameters: [String:Any], data: @escaping (WeatherResult) -> Void) {
+        apiCall(method: Router.ForeCast(params)) { data($0) }
     }
     
-    public func forecastWeatherByCityNameAsJson(cityName: String, data: (WeatherResult) -> Void) {
+    public func forecastWeatherByCityNameAsJson(cityName: String, data: @escaping (WeatherResult) -> Void) {
         params["q"] = cityName
         
-        forecastWeather(params) { data($0) }
+        forecastWeather(parameters: params) { data($0) }
     }
     
-    public func forecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (WeatherResult) -> Void) {
+    public func forecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: @escaping (WeatherResult) -> Void) {
         
         params["lat"] = String(stringInterpolationSegment: coordinates.latitude)
         params["lon"] = String(stringInterpolationSegment: coordinates.longitude)
         
-        forecastWeather(params) { data($0) }
+        forecastWeather(parameters: params) { data($0) }
     }
-    
 }
 
 //MARK: - Get Daily Forecast
 extension WAPIManager {
     
-    private func dailyForecastWeather(parameters: [String:AnyObject], data: (WeatherResult) -> Void) {
-        apiCall(Router.DailyForecast(params)) { data($0) }
+    private func dailyForecastWeather(parameters: [String:Any], data: @escaping (WeatherResult) -> Void) {
+        apiCall(method: Router.DailyForecast(params)) { data($0) }
     }
     
-    public func dailyForecastWeatherByCityNameAsJson(cityName: String, data: (WeatherResult) -> Void) {
+    public func dailyForecastWeatherByCityNameAsJson(cityName: String, data: @escaping (WeatherResult) -> Void) {
         params["q"] = cityName
         
-        dailyForecastWeather(params) { data($0) }
+        dailyForecastWeather(parameters: params) { data($0) }
     }
     
-    public func dailyForecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (WeatherResult) -> Void) {
+    public func dailyForecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: @escaping (WeatherResult) -> Void) {
         
         params["lat"] = String(stringInterpolationSegment: coordinates.latitude)
         params["lon"] = String(stringInterpolationSegment: coordinates.longitude)
         
-        dailyForecastWeather(params) { data($0) }
+        dailyForecastWeather(parameters: params) { data($0) }
     }
     
 }
@@ -227,13 +226,13 @@ extension WAPIManager {
 //MARK: - Get Historic Data
 extension WAPIManager {
     
-    private func historicData(parameters: [String:AnyObject], data: (WeatherResult) -> Void) {
+    private func historicData(parameters: [String:Any], data: @escaping (WeatherResult) -> Void) {
         params["type"] = "hour"
         
-        apiCall(Router.HirstoricData(params)) { data($0) }
+        apiCall(method: Router.HirstoricData(params)) { data($0) }
     }
     
-    public func historicDataByCityNameAsJson(cityName: String, start: NSDate, end: NSDate?, data: (WeatherResult) -> Void) {
+    public func historicDataByCityNameAsJson(cityName: String, start: NSDate, end: NSDate?, data: @escaping (WeatherResult) -> Void) {
         params["q"] = cityName
         
         params["start"] = start.timeIntervalSince1970
@@ -241,10 +240,10 @@ extension WAPIManager {
             params["end"] = endDate.timeIntervalSince1970
         }
         
-        historicData(params) { data($0) }
+        historicData(parameters: params) { data($0) }
     }
     
-    public func historicDataByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, start: NSDate, end: NSDate?, data: (WeatherResult) -> Void) {
+    public func historicDataByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, start: NSDate, end: NSDate?, data: @escaping (WeatherResult) -> Void) {
         
         params["lat"] = String(stringInterpolationSegment: coordinates.latitude)
         params["lon"] = String(stringInterpolationSegment: coordinates.longitude)
@@ -254,7 +253,7 @@ extension WAPIManager {
             params["end"] = endDate.timeIntervalSince1970
         }
         
-        historicData(params) { data($0) }
+        historicData(parameters: params) { data($0) }
     }
     
 }
