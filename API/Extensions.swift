@@ -11,7 +11,7 @@ import Foundation
 extension Double {
     func convertTimeToString() -> String{
         let currentDateTime = NSDate(timeIntervalSince1970: self)
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM hh:mm"
         return dateFormatter.stringFromDate(currentDateTime)
     }
