@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38E03E53AD86A1643F9268A4 /* Pods_SwiftOpenWeatherMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D116260FA088CF82142A713 /* Pods_SwiftOpenWeatherMapAPI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4178629D1ADFC4E000A20E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178629C1ADFC4E000A20E14 /* AppDelegate.swift */; };
 		4178629F1ADFC4E000A20E14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178629E1ADFC4E000A20E14 /* ViewController.swift */; };
 		417862A21ADFC4E000A20E14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417862A01ADFC4E000A20E14 /* Main.storyboard */; };
 		417862A41ADFC4E000A20E14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417862A31ADFC4E000A20E14 /* Images.xcassets */; };
 		417862A71ADFC4E000A20E14 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417862A51ADFC4E000A20E14 /* LaunchScreen.xib */; };
 		417862C21ADFC87400A20E14 /* WAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417862C11ADFC87400A20E14 /* WAPIManager.swift */; };
-
 		41DA8A3C1C60C066001D67CE /* SwiftOpenWeatherMapApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 41DA8A3B1C60C066001D67CE /* SwiftOpenWeatherMapApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41DA8A401C60C066001D67CE /* SwiftOpenWeatherMapApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A391C60C066001D67CE /* SwiftOpenWeatherMapApi.framework */; };
 		41DA8A411C60C066001D67CE /* SwiftOpenWeatherMapApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A391C60C066001D67CE /* SwiftOpenWeatherMapApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -22,9 +20,9 @@
 		41DA8A471C60C07F001D67CE /* WAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417862C11ADFC87400A20E14 /* WAPIManager.swift */; };
 		41DA8A4A1C60C0AD001D67CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A481C60C0AD001D67CE /* Alamofire.framework */; };
 		41DA8A4B1C60C0AD001D67CE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A491C60C0AD001D67CE /* SwiftyJSON.framework */; };
-		41F70DD21BF239F70013702A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F70DD11BF239F70013702A /* Utility.swift */; };
 		41F70DD41BF24E430013702A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F70DD31BF24E430013702A /* Extensions.swift */; };
 		41F70DD61BF24E5D0013702A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F70DD51BF24E5D0013702A /* Weather.swift */; };
+		F32F203040C1C166544DB25C /* Pods_SwiftOpenWeatherMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D17BCA45A4F4A370F2521B1 /* Pods_SwiftOpenWeatherMapAPI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0CA233BD622FA4E2CF360C59 /* Pods-SwiftOpenWeatherMapAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenWeatherMapAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenWeatherMapAPI/Pods-SwiftOpenWeatherMapAPI.release.xcconfig"; sourceTree = "<group>"; };
+		0C4C791A33291BEA7F2D8AE4 /* Pods-SwiftOpenWeatherMapAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenWeatherMapAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenWeatherMapAPI/Pods-SwiftOpenWeatherMapAPI.release.xcconfig"; sourceTree = "<group>"; };
+		3D17BCA45A4F4A370F2521B1 /* Pods_SwiftOpenWeatherMapAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOpenWeatherMapAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		417862971ADFC4E000A20E14 /* SwiftOpenWeatherMapAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOpenWeatherMapAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4178629B1ADFC4E000A20E14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4178629C1ADFC4E000A20E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +60,6 @@
 		417862A31ADFC4E000A20E14 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		417862A61ADFC4E000A20E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		417862C11ADFC87400A20E14 /* WAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAPIManager.swift; path = API/WAPIManager.swift; sourceTree = SOURCE_ROOT; };
-
 		41DA8A391C60C066001D67CE /* SwiftOpenWeatherMapApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftOpenWeatherMapApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DA8A3B1C60C066001D67CE /* SwiftOpenWeatherMapApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftOpenWeatherMapApi.h; sourceTree = "<group>"; };
 		41DA8A3D1C60C066001D67CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,8 +68,7 @@
 		41F70DD11BF239F70013702A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = API/Utility.swift; sourceTree = SOURCE_ROOT; };
 		41F70DD31BF24E430013702A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		41F70DD51BF24E5D0013702A /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		5D116260FA088CF82142A713 /* Pods_SwiftOpenWeatherMapAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOpenWeatherMapAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		829215678056FE637FF7CC06 /* Pods-SwiftOpenWeatherMapAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenWeatherMapAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenWeatherMapAPI/Pods-SwiftOpenWeatherMapAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		A86AD5CB16A016D6EEBF982E /* Pods-SwiftOpenWeatherMapAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenWeatherMapAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenWeatherMapAPI/Pods-SwiftOpenWeatherMapAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DA8A401C60C066001D67CE /* SwiftOpenWeatherMapApi.framework in Frameworks */,
-				38E03E53AD86A1643F9268A4 /* Pods_SwiftOpenWeatherMapAPI.framework in Frameworks */,
+				F32F203040C1C166544DB25C /* Pods_SwiftOpenWeatherMapAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +100,8 @@
 				417862991ADFC4E000A20E14 /* SwiftOpenWeatherMapAPI */,
 				41DA8A3A1C60C066001D67CE /* SwiftOpenWeatherMapApi */,
 				417862981ADFC4E000A20E14 /* Products */,
-				E97ACAE84F6331FC6219D7AB /* Pods */,
 				D5BCB59AC00C44276A07E459 /* Frameworks */,
+				66FB08185AAD59B74C41FC04 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,23 +155,23 @@
 			path = SwiftOpenWeatherMapApi;
 			sourceTree = "<group>";
 		};
+		66FB08185AAD59B74C41FC04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A86AD5CB16A016D6EEBF982E /* Pods-SwiftOpenWeatherMapAPI.debug.xcconfig */,
+				0C4C791A33291BEA7F2D8AE4 /* Pods-SwiftOpenWeatherMapAPI.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D5BCB59AC00C44276A07E459 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				41DA8A481C60C0AD001D67CE /* Alamofire.framework */,
 				41DA8A491C60C0AD001D67CE /* SwiftyJSON.framework */,
-				5D116260FA088CF82142A713 /* Pods_SwiftOpenWeatherMapAPI.framework */,
+				3D17BCA45A4F4A370F2521B1 /* Pods_SwiftOpenWeatherMapAPI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E97ACAE84F6331FC6219D7AB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				829215678056FE637FF7CC06 /* Pods-SwiftOpenWeatherMapAPI.debug.xcconfig */,
-				0CA233BD622FA4E2CF360C59 /* Pods-SwiftOpenWeatherMapAPI.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +192,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 417862B61ADFC4E000A20E14 /* Build configuration list for PBXNativeTarget "SwiftOpenWeatherMapAPI" */;
 			buildPhases = (
-				3F7B0DAE4954E2F3E3EF6EED /* Check Pods Manifest.lock */,
+				B990E2CA6E4758A143EADF1B /* [CP] Check Pods Manifest.lock */,
 				417862931ADFC4E000A20E14 /* Sources */,
 				417862941ADFC4E000A20E14 /* Frameworks */,
 				417862951ADFC4E000A20E14 /* Resources */,
-				C0FC5DE8D538919239189295 /* Embed Pods Frameworks */,
-				5FED7A1BAAC4AAE70D5C7833 /* Copy Pods Resources */,
 				41DA8A451C60C067001D67CE /* Embed Frameworks */,
+				D4E8F7249D8E4FD2AC7756B6 /* [CP] Embed Pods Frameworks */,
+				9C7A82C681BFF0043F3726B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,29 +286,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F7B0DAE4954E2F3E3EF6EED /* Check Pods Manifest.lock */ = {
+		9C7A82C681BFF0043F3726B2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5FED7A1BAAC4AAE70D5C7833 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,14 +301,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftOpenWeatherMapAPI/Pods-SwiftOpenWeatherMapAPI-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C0FC5DE8D538919239189295 /* Embed Pods Frameworks */ = {
+		B990E2CA6E4758A143EADF1B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D4E8F7249D8E4FD2AC7756B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,7 +469,7 @@
 		};
 		417862B71ADFC4E000A20E14 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 829215678056FE637FF7CC06 /* Pods-SwiftOpenWeatherMapAPI.debug.xcconfig */;
+			baseConfigurationReference = A86AD5CB16A016D6EEBF982E /* Pods-SwiftOpenWeatherMapAPI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -485,7 +482,7 @@
 		};
 		417862B81ADFC4E000A20E14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CA233BD622FA4E2CF360C59 /* Pods-SwiftOpenWeatherMapAPI.release.xcconfig */;
+			baseConfigurationReference = 0C4C791A33291BEA7F2D8AE4 /* Pods-SwiftOpenWeatherMapAPI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
